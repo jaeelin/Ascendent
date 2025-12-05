@@ -5,7 +5,9 @@ Library.Core = {
 }
 
 function Library:CreateWindow()
-	Library.Core.Window.new()
+	local Window = Library.Core.Window()
+
+	return Window
 end
 
 return Library
