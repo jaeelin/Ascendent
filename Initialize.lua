@@ -1,19 +1,7 @@
 local Library = {}
 
 Library.Core = {
-	Window = require(script.Core.Window),
+    Window = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/main/Core/Window.lua"))()
 }
-
---[[Library.Components = {
-	Toggle = require(script.Components.Toggle),
-}
-
-Library.Theme = {
-	Dark = require(script.Theme.Dark),
-}
-
-Library.Utilities = {
-	Tween = require(script.Utils.Tween),
-}]]
 
 return Library
