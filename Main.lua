@@ -11,7 +11,10 @@ Library.Core = {
 function Library:CreateWindow(config)
     if Library.Window then warn("multiple windows not supported") return end
     
-    local Window = Library.Core.Window(config)
+    local Window = Library.Core.Window({
+		Title = config.Title or "Ascendent",
+		Keybind = config.Keybind or Enum.KeyCode.LeftShit
+	})
     Library.Window = Window
 
     return Window
