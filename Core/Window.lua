@@ -13,6 +13,8 @@ return function(config)
 		window.MainGUI.Name = title
 		window.MainGUI.ResetOnSpawn = false
 		window.MainGUI.IgnoreGuiInset = true
+
+		config.GUI = window.MainGUI
 	
 		if protectGui then protectGui(window.MainGUI) end
 	
