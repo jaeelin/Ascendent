@@ -3,10 +3,10 @@ local coreGui = game:GetService("CoreGui")
 local protectGui = (syn and syn.protect_gui)
 
 return function(config)
-	self.Title = config.Title or "Ascendent"
+	local title = config.Title or "Ascendent"
 
 	local screenGui = Instance.new("ScreenGui", coreGui)
-	screenGui.Name = config.Title
+	screenGui.Name = title
 	screenGui.ResetOnSpawn = false
 	screenGui.IgnoreGuiInset = true
 
