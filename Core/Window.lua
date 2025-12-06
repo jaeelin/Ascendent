@@ -2,8 +2,7 @@ local coreGui = game:GetService("CoreGui")
 
 local protectGui = (syn and syn.protect_gui)
 
-return function(Library)
-	return function(config)
+return function(config)
 		local window = {}
 	
 		local title = config.Title or "Ascendent"
@@ -69,4 +68,3 @@ return function(Library)
 	
 		return window
 	end
-end
