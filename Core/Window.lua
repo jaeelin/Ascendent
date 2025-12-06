@@ -30,6 +30,7 @@ return function(config)
 		window.mainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 		window.mainFrame.Size = UDim2.new(0.35, 0, 0.5, 0)
 		window.mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+		window.mainFrame.Visible = false
 	
 		local uiCorner = Instance.new("UICorner", window.mainFrame)
 		uiCorner.CornerRadius = UDim.new(0.01, 0)
@@ -39,7 +40,7 @@ return function(config)
 		window.sideBar.BackgroundTransparency = 1
 		window.sideBar.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 		window.sideBar.Size = UDim2.new(0.05, 0, 0.5, 0)
-		window.sideBar.Position = UDim2.new(0.035, 0, 0.5, 0)
+		window.sideBar.Position = UDim2.new(-0.2, 0, 0.5, 0)
 		
 		local uiCorner2 = Instance.new("UICorner", window.sideBar)
 		uiCorner2.CornerRadius = UDim.new(0.025, 0)
