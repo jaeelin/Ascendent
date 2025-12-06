@@ -14,7 +14,7 @@ function Library:CreateWindow(config)
     local Window = Library.Core.Window({
 		Title = config.Title or "Ascendent",
 		Keybind = config.Keybind or Enum.KeyCode.LeftShit,
-		Library.GUI
+		GUI = Library.GUI
 	})
     Library.Window = Window
 
