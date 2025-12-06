@@ -6,6 +6,7 @@ return function(config)
 		local window = {}
 	
 		local title = config.Title or "Ascendent"
+		local keybind = config.Keybind
 	
 		window.MainGUI = Instance.new("ScreenGui", coreGui)
 		window.MainGUI.Name = title
@@ -63,6 +64,14 @@ return function(config)
 		local uiListLayout = Instance.new("UIListLayout", window.listFrame)
 		uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+
+		UserInputService.InputBegan:Connect(function(input, gameProcessed)
+			if not gameProcessed and input.UserInputType == Enum.UserInputType.Keyboard then
+				if input.KeyCode == keybind then
+					window.MainGUI.Enabled = not window.MainGUI.Enabled
+				end
+			end
+		end)
 	
 		return window
 	end
