@@ -5,6 +5,7 @@ Library.Core = {
 }
 
 local Library = {
+	Version = "1.0.0"
 	Window = nil,
 }
 
@@ -16,6 +17,10 @@ function Library:CreateWindow(config)
 	Library.Window = Window
 
 	return Window
+end
+
+function Library:GetVersion()
+	return Library.Version
 end
 
 return Library
