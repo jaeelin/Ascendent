@@ -87,11 +87,12 @@ return function(config)
 		end
 	end)
 
-	function window:CreateTab(tabName)
-		tabName = tabName or "NewTab"
+	function window:CreateTab(config)
+		local tabName = config.tabName or "NewTab"
+		local tabImage = config.tabImage or "nil"
 
 		local tabButton = Instance.new("ImageButton", window.listFrame)
-		tabButton.Size = UDim2.new(0.7, 0, 0.15, 0)
+		tabButton.Size = UDim2.new(1, 0, 0.15, 0)
 		tabButton.BackgroundTransparency = 1
 		tabButton.AutoButtonColor = false
 		tabButton.Name = tabName
