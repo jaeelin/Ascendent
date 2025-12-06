@@ -1,4 +1,5 @@
 local coreGui = game:GetService("CoreGui")
+local userInputService = game:GetService("UserInputService")
 
 local protectGui = (syn and syn.protect_gui)
 
@@ -65,7 +66,7 @@ return function(config)
 		uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
-		UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		userInputService.InputBegan:Connect(function(input, gameProcessed)
 			if not gameProcessed and input.UserInputType == Enum.UserInputType.Keyboard then
 				if input.KeyCode == keybind then
 					window.MainGUI.Enabled = not window.MainGUI.Enabled
