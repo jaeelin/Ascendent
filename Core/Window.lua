@@ -27,6 +27,7 @@ return function(config)
 	window.background.BackgroundTransparency = 1
 
 	window.mainFrame = Instance.new("Frame", window.background)
+	window.mainFrame.Name = "Main"
 	window.mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.mainFrame.BackgroundTransparency = 0.05
 	window.mainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
@@ -38,16 +39,18 @@ return function(config)
 	uiCorner.CornerRadius = UDim.new(0.01, 0)
 
 	window.sideBar = Instance.new("Frame", window.background)
+	window.sideBar.Name = "Sidebar"
 	window.sideBar.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.sideBar.BackgroundTransparency = 1
 	window.sideBar.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 	window.sideBar.Size = UDim2.new(0.05, 0, 0.5, 0)
-	window.sideBar.Position = UDim2.new(-0.2, 0, 0.5, 0)
+	window.sideBar.Position = UDim2.new(-0.03, 0, 0.45, 0)
 
 	local uiCorner2 = Instance.new("UICorner", window.sideBar)
 	uiCorner2.CornerRadius = UDim.new(0.025, 0)
 
 	window.bar = Instance.new("Frame", window.sideBar)
+	window.bar.Name = "Bar"
 	window.bar.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.bar.BackgroundTransparency = 0.05
 	window.bar.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
@@ -58,6 +61,7 @@ return function(config)
 	uiCorner3.CornerRadius = UDim.new(1, 0)
 
 	window.listFrame = Instance.new("Frame", window.sideBar)
+	window.listFrame.Name = "List"
 	window.listFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.listFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 	window.listFrame.Size = UDim2.new(1, 0, 1, 0)
