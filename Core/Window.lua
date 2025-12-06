@@ -3,6 +3,8 @@ local userInputService = game:GetService("UserInputService")
 
 local protectGui = (syn and syn.protect_gui)
 
+local Tabs = loadstring(game:HttpGet(""))()
+
 return function(config)
 	local window = {}
 	
@@ -88,23 +90,7 @@ return function(config)
 	end)
 
 	function window:CreateTab(config)
-		local tabName = config.tabName or "NewTab"
-		local tabImage = config.tabImage or "nil"
-
-		local tabButton = Instance.new("ImageButton", window.listFrame)
-		tabButton.Size = UDim2.new(1, 0, 0.15, 0)
-		tabButton.BackgroundTransparency = 1
-		tabButton.AutoButtonColor = false
-		tabButton.Name = tabName
-
-		local imageIcon = Instance.new("ImageLabel", tabButton)
-		imageIcon.BackgroundTransparency = 1
-		imageIcon.Position = UDim2.new(0.1, 0, 0.1, 0)
-		imageIcon.Size = UDim2.new(0.78, 0, 0.78, 0)
-		
-		window.Tabs[tabName] = { Button = tabButton }
-		
-		return window.Tabs[tabName]
+		return Tabs:Create(window, config)
 	end
 
 	return window
