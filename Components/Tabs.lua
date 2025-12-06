@@ -1,8 +1,8 @@
 local Tabs = {}
 
 function Tabs:Create(window, config)
-	local tabName = config.tabName or "NewTab"
-	local tabImage = config.tabImage or "rbxassetid://0"
+	local tabName = config.Name or "NewTab"
+	local tabImage = config.Image or "rbxassetid://0"
 	
 	local tabButton = Instance.new("ImageButton", window.listFrame)
 	tabButton.Size = UDim2.new(1, 0, 0.15, 0)
