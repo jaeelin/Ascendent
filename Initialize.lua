@@ -1,6 +1,7 @@
 local Library = {
 	Version = "1.0.0",
 	Window = nil,
+	GUI = nil,
 }
 
 Library.Core = {
