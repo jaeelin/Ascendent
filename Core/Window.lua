@@ -66,8 +66,8 @@ return function(config)
 		uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
-		userInputService.InputBegan:Connect(function(input, gameProcessed)
-			if not gameProcessed and input.UserInputType == Enum.UserInputType.Keyboard then
+		userInputService.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.Keyboard then
 				if input.KeyCode == keybind then
 					window.MainGUI.Enabled = not window.MainGUI.Enabled
 				end
