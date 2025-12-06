@@ -17,6 +17,12 @@ function Library:CreateWindow(config)
     return Window
 end
 
+function Library:Destroy()
+	if Library.Window then
+		Library.GUI:Destroy()
+	end
+end
+
 function Library:GetVersion()
     return Library.Version
 end
