@@ -1,12 +1,10 @@
-local Library = {}
-
-Library.Core = {
-	Window = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/main/Core/Window.lua"))()
-}
-
 local Library = {
 	Version = "1.0.0"
 	Window = nil,
+}
+
+Library.Core = {
+	Window = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/main/Core/Window.lua"))()
 }
 
 function Library:CreateWindow(config)
