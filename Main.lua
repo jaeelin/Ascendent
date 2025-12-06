@@ -1,6 +1,7 @@
 local Library = {
     Version = "1.0.0",
-    Window = nil
+    Window = nil,
+    GUI = nil,
 }
 
 Library.Window = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Core/Window.lua"))()
@@ -12,6 +13,16 @@ function Library:CreateWindow(config)
     Library.Window = Window
 
     return Window
+end
+
+function Library:Destroy()
+	if Library.Window and Library.GUI then
+		Library.GUI:Destroy()
+	end
+end
+
+function Library:GetVersion()
+    return Library.Version
 end
 
 return Library
