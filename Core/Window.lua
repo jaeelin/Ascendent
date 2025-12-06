@@ -34,7 +34,7 @@ return function(config)
 	window.sideBar.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.sideBar.BackgroundTransparency = 1
 	window.sideBar.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	window.sideBar.Size = UDim2.new(0.5, 0, 0.5, 0)
+	window.sideBar.Size = UDim2.new(0.05, 0, 0.5, 0)
 	window.sideBar.Position = UDim2.new(0.035, 0, 0.5, 0)
 	
 	local uiCorner2 = Instance.new("UICorner", window.sideBar)
