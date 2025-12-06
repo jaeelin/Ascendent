@@ -4,7 +4,9 @@ local Library = {
     GUI = nil,
 }
 
-Library.Core.Window = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Core/Window.lua"))()
+Library.Core = {
+    Window = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Core/Window.lua"))()
+}
 
 function Library:CreateWindow(config)
     if Library.Window then warn("multiple windows not supported") return end
