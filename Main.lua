@@ -13,18 +13,23 @@ function Library:CreateWindow(config)
     
     local Window = Library.Core.Window({
 		Title = config.Title or "Ascendent",
-		Keybind = config.Keybind or Enum.KeyCode.LeftShit,
-		GUI = Library.GUI
+		Keybind = config.Keybind or Enum.KeyCode.LeftShit
 	})
     Library.Window = Window
+	Library.GUI = Window.MainGUI
 
     return Window
 end
 
 function Library:Destroy()
-	if Library.Window and Library.GUI then
-		Library.GUI:Destroy()
-	end
+    if Library.Window then
+        if Library.Window.MainGUI then
+            Library.Window.MainGUI:Destroy()
+        end
+		
+        Library.Window = nil
+        Library.GUI = nil
+    end
 end
 
 function Library:GetVersion()
