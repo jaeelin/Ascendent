@@ -14,8 +14,6 @@ return function(config)
 	
 		if protectGui then protectGui(window.MainGUI) end
 	
-		Library.GUI = window.MainGUI  
-	
 		window.background = Instance.new("Frame", window.MainGUI)
 		window.background.Name = "Background"
 		window.background.Size = UDim2.new(1, 0, 1, 0)
