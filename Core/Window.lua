@@ -41,12 +41,6 @@ return function(config)
 	local uiCorner = Instance.new("UICorner", window.mainFrame)
 	uiCorner.CornerRadius = UDim.new(0.01, 0)
 
-	window.hoverFrame = Instance.new("Frame", window.background)
-	window.hoverFrame.Name = "Hover"
-	window.hoverFrame.BackgroundTransparency = 1
-	window.hoverFrame.Size = UDim2.new(1.5, 0, 0.2, 0)
-	window.hoverFrame.Position = UDim2.new(-0.1, 0, 0.45, 0)
-
 	window.sideBar = Instance.new("Frame", window.background)
 	window.sideBar.Name = "Sidebar"
 	window.sideBar.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -57,14 +51,20 @@ return function(config)
 
 	local uiCorner2 = Instance.new("UICorner", window.sideBar)
 	uiCorner2.CornerRadius = UDim.new(0.025, 0)
+	
+	window.hoverFrame = Instance.new("Frame", window.sideBar)
+	window.hoverFrame.Name = "Hover"
+	window.hoverFrame.BackgroundTransparency = 1
+	window.hoverFrame.Size = UDim2.new(2, 0, 1, 0)
+	window.hoverFrame.Position = UDim2.new(-0.7, 0, 0, 0)
 
 	window.bar = Instance.new("Frame", window.sideBar)
 	window.bar.Name = "Bar"
 	window.bar.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.bar.BackgroundTransparency = 0.05
-	window.bar.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	window.bar.Size = UDim2.new(0.05, 0, 0.5, 0)
-	window.bar.Position = UDim2.new(1.2, 0, 0.5, 0)
+	window.bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	window.bar.Size = UDim2.new(0.05, 0, 0.15, 0)
+	window.bar.Position = UDim2.new(1.2, 0, 0.55, 0)
 
 	local uiCorner3 = Instance.new("UICorner", window.bar)
 	uiCorner3.CornerRadius = UDim.new(1, 0)
