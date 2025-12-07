@@ -13,7 +13,7 @@ function Library:CreateWindow(config)
     
     local Window = Library.Core.Window({
 		Title = config.Title or "Ascendent",
-		Keybind = config.Keybind or Enum.KeyCode.LeftShit
+		Keybind = config.Keybind or Enum.KeyCode.LeftShift
 	})
     Library.Window = Window
 	Library.GUI = Window.MainGUI
