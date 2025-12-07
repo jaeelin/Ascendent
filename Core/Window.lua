@@ -4,7 +4,7 @@ local tweenService = game:GetService("TweenService")
 
 local protectGui = (syn and syn.protect_gui)
 
-local Tabs = loadstring(game:HttpGet(""))()
+local Tabs = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Tabs.lua"))()
 
 return function(config)
 	local window = {}
