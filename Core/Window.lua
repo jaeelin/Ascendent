@@ -44,8 +44,8 @@ return function(config)
 	window.hoverFrame = Instance.new("Frame", window.background)
 	window.hoverFrame.Name = "Hover"
 	window.hoverFrame.BackgroundTransparency = 1
-	window.hoverFrame.Size = UDim2.new(0.015, 0, 0.2, 0)
-	window.hoverFrame.Position = UDim2.new(0.003, 0, 0.4, 0)
+	window.hoverFrame.Size = UDim2.new(1.5, 0, 0.2, 0)
+	window.hoverFrame.Position = UDim2.new(-0.1, 0, 0.45, 0)
 
 	window.sideBar = Instance.new("Frame", window.background)
 	window.sideBar.Name = "Sidebar"
@@ -95,13 +95,6 @@ return function(config)
 			{Position = UDim2.new(0.05, 0, 0.45, 0)}
 		)
 		sidebar:Play()
-		
-		local hover = tweenService:Create(
-			window.hoverFrame,
-			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
-			{Position = UDim2.new(0.003, 0, 0.4, 0)}
-		)
-		hover:Play()
 	end)
 
 	window.hoverFrame.MouseLeave:Connect(function()
@@ -111,13 +104,6 @@ return function(config)
 			{Position = UDim2.new(-0.03, 0, 0.45, 0)}
 		)
 		sidebar:Play()
-		
-		local hover = tweenService:Create(
-			window.hoverFrame,
-			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
-			{Position = UDim2.new(-0.07, 0, 0.4, 0)}
-		)
-		hover:Play()
 	end)
 
 	userInputService.InputBegan:Connect(function(input)
