@@ -1,9 +1,10 @@
 local coreGui = game:GetService("CoreGui")
 local userInputService = game:GetService("UserInputService")
+local tweenService = game:GetService("TweenService")
 
 local protectGui = (syn and syn.protect_gui)
 
-local Tabs = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Tabs.lua"))()
+local Tabs = loadstring(game:HttpGet(""))()
 
 return function(config)
 	local window = {}
@@ -80,7 +81,25 @@ return function(config)
 	local uiListLayout = Instance.new("UIListLayout", window.listFrame)
 	uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-
+	
+	window.bar.MouseEnter:Connect(function()
+		local tween = tweenService:Create(
+			window.sideBar,
+			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+			{Position = UDim2.new(0.05, 0, 0.45, 0)}
+		)
+		tween:Play()
+	end)
+	
+	window.bar.MouseLeave:Connect(function()
+		local tween = tweenService:Create(
+			window.sideBar,
+			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+			{Position = UDim2.new(-0.03, 0, 0.45, 0)}
+		)
+		tween:Play()
+	end)
+	
 	userInputService.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.Keyboard then
 			if input.KeyCode == keybind then
