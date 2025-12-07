@@ -40,6 +40,12 @@ return function(config)
 
 	local uiCorner = Instance.new("UICorner", window.mainFrame)
 	uiCorner.CornerRadius = UDim.new(0.01, 0)
+	
+	window.hoverFrame = Instance.new("Frame", window.background)
+	window.hoverFrame.Name = "Hover"
+	window.hoverFrame.BackgroundTransparency = 1
+	window.hoverFrame.Size = UDim2.new(0.015, 0, 0.2, 0)
+	window.hoverFrame.Position = UDim2.new(0.003, 0, 0.4, 0)
 
 	window.sideBar = Instance.new("Frame", window.background)
 	window.sideBar.Name = "Sidebar"
@@ -80,9 +86,9 @@ return function(config)
 
 	local uiListLayout = Instance.new("UIListLayout", window.listFrame)
 	uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center	
 	
-	window.bar.MouseEnter:Connect(function()
+	window.hoverFrame.MouseEnter:Connect(function()
 		local tween = tweenService:Create(
 			window.sideBar,
 			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
@@ -91,7 +97,7 @@ return function(config)
 		tween:Play()
 	end)
 	
-	window.bar.MouseLeave:Connect(function()
+	window.hoverFrame.MouseLeave:Connect(function()
 		local tween = tweenService:Create(
 			window.sideBar,
 			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
