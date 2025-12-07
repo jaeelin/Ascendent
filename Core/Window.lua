@@ -8,9 +8,9 @@ local Tabs = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/
 
 return function(config)
 	local window = {}
-	
+
 	window.Tabs = {}
-	
+
 	local title = config.Title or "Ascendent"
 	local keybind = config.Keybind
 
@@ -40,7 +40,7 @@ return function(config)
 
 	local uiCorner = Instance.new("UICorner", window.mainFrame)
 	uiCorner.CornerRadius = UDim.new(0.01, 0)
-	
+
 	window.hoverFrame = Instance.new("Frame", window.background)
 	window.hoverFrame.Name = "Hover"
 	window.hoverFrame.BackgroundTransparency = 1
@@ -87,25 +87,39 @@ return function(config)
 	local uiListLayout = Instance.new("UIListLayout", window.listFrame)
 	uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center	
-	
+
 	window.hoverFrame.MouseEnter:Connect(function()
-		local tween = tweenService:Create(
+		local sidebar = tweenService:Create(
 			window.sideBar,
 			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
 			{Position = UDim2.new(0.05, 0, 0.45, 0)}
 		)
-		tween:Play()
+		sidebar:Play()
+		
+		local hover = tweenService:Create(
+			window.hoverFrame,
+			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+			{Position = UDim2.new(0.003, 0, 0.4, 0)}
+		)
+		hover:Play()
 	end)
-	
+
 	window.hoverFrame.MouseLeave:Connect(function()
-		local tween = tweenService:Create(
+		local sidebar = tweenService:Create(
 			window.sideBar,
 			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
 			{Position = UDim2.new(-0.03, 0, 0.45, 0)}
 		)
-		tween:Play()
+		sidebar:Play()
+		
+		local hover = tweenService:Create(
+			window.hoverFrame,
+			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+			{Position = UDim2.new(-0.07, 0, 0.4, 0)}
+		)
+		hover:Play()
 	end)
-	
+
 	userInputService.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.Keyboard then
 			if input.KeyCode == keybind then
