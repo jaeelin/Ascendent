@@ -8,6 +8,9 @@ function Tabs:Create(window, config)
 	local tabDescription = config.Description or ""
 	local tabImage = config.Image or "rbxassetid://0"
 	
+	print(window.tabTitle)
+	print(window.tabDescription)
+	
 	tabCount += 1
 	
 	local tabOrder = config.Order or 0
