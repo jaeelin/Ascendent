@@ -41,24 +41,21 @@ function Tabs:Create(window, config)
 		
 		currentTab = window.Tabs[tabName]
 		
-		print(tabCount)
-		print(currentTab)
-		
 		icon.ImageColor3 = Color3.fromRGB(255, 100, 200)
 		iconBar.BackgroundTransparency = 0
 	end
-	
-	if tabCount == 1 then
-		selectTab()
-	end
-	
-	tabButton.MouseButton1Click:Connect(selectTab)
 
 	window.Tabs[tabName] = { 
 		Button = tabButton,
 		Icon = icon,
 		IconBar = iconBar,
 	}
+	
+	if tabCount == 1 then
+		selectTab()
+	end
+
+	tabButton.MouseButton1Click:Connect(selectTab)
 
 	return window.Tabs[tabName]
 end
