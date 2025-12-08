@@ -27,7 +27,7 @@ return function(config)
 	window.background = Instance.new("Frame", window.MainGUI)
 	window.background.Name = "Background"
 	window.background.Size = UDim2.new(0.3, 0, 0.75, 0)
-	window.background.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	window.background.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 	window.background.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.background.Position = UDim2.new(0.5, 0, 0.5, 0)
 	window.background.ClipsDescendants = true
@@ -37,7 +37,7 @@ return function(config)
 
 	window.mainFrame = Instance.new("Frame", window.background)
 	window.mainFrame.Name = "Main"
-	window.mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.mainFrame.BackgroundColor3 = Color3.fromRGB(20,20,20)
 	window.mainFrame.Size = UDim2.new(0.85, 0, 0.75, 0)
 	window.mainFrame.Position = UDim2.new(0.075, 0, 0.125, 0)
 	
@@ -47,7 +47,7 @@ return function(config)
 	window.bottomBar = Instance.new("Frame", window.background)
 	window.bottomBar.Name = "BottomBar"
 	window.bottomBar.Size = UDim2.new(1, 0, 0.1, 0)
-	window.bottomBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.bottomBar.BackgroundColor3 = Color3.fromRGB(20,20,20)
 	window.bottomBar.Position = UDim2.new(0, 0, 1.05, 0)
 	window.bottomBar.ZIndex = 2
 	
@@ -57,7 +57,7 @@ return function(config)
 	window.bottomBarCover = Instance.new("Frame", window.bottomBar)
 	window.bottomBarCover.Name = "BottomBarCover"
 	window.bottomBarCover.Size = UDim2.new(1, 0, 0.15, 0)
-	window.bottomBarCover.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.bottomBarCover.BackgroundColor3 = Color3.fromRGB(20,20,20)
 	window.bottomBarCover.Position = UDim2.new(0, 0, -0.01, 0)
 	window.bottomBarCover.BorderSizePixel = 0
 	
@@ -79,7 +79,7 @@ return function(config)
 	window.hoverFrame = Instance.new("Frame", window.background)
 	window.hoverFrame.Name = "Hover"
 	window.hoverFrame.Size = UDim2.new(1, 0, 0.1, 0)
-	window.hoverFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.hoverFrame.BackgroundColor3 = Color3.fromRGB(20,20,20)
 	window.hoverFrame.BackgroundTransparency = 1
 	window.hoverFrame.Position = UDim2.new(0, 0, 0.9, 0)
 	window.hoverFrame.ZIndex = 1
@@ -97,6 +97,7 @@ return function(config)
 	uiCorner6.CornerRadius = UDim.new(1, 0)
 	
 	window.exitButton = Instance.new("TextButton", window.background)
+	window.exitButton.Name = "Exit"
 	window.exitButton.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
 	window.exitButton.TextColor3 = Color3.fromRGB(255, 100, 200)
 	window.exitButton.TextScaled = true
@@ -109,7 +110,7 @@ return function(config)
 	uiCorner6.CornerRadius = UDim.new(0.25, 0)
 	
 	local uiTextConstraint = Instance.new("UITextSizeConstraint", window.exitButton)
-	uiTextConstraint.MaxTextSize = 20
+	uiTextConstraint.MaxTextSize = 25
 	
 	window.tabTitle = Instance.new("TextLabel", window.background)
 	window.tabTitle.Name = "Title"
