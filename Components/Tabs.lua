@@ -5,6 +5,7 @@ local currentTab = nil
 
 function Tabs:Create(window, config)
 	local tabName = config.Name or "NewTab"
+	local tabDescription = config.Description or ""
 	local tabImage = config.Image or "rbxassetid://0"
 	
 	tabCount += 1
@@ -41,6 +42,9 @@ function Tabs:Create(window, config)
 		end
 		
 		currentTab = window.Tabs[tabName]
+		
+		window.tabTitle.Text = tabName
+		window.tabDescription.Text = tabDescription
 		
 		icon.ImageColor3 = Color3.fromRGB(255, 100, 200)
 		iconBar.BackgroundTransparency = 0
