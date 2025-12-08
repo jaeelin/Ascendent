@@ -28,17 +28,20 @@ function Tabs:Create(window, config)
 	
 	local iconBar = Instance.new("Frame", tabButton)
 	iconBar.BackgroundTransparency = 1
-	iconBar.Size = UDim2.new(0.5, 0, 0.07, 0)
+	iconBar.BackgroundColor3 = Color3.fromRGB(255, 100, 200)
+	iconBar.Size = UDim2.new(0.5, 0, 0.025, 0)
 	iconBar.Position = UDim2.new(0.25, 0, 0.85, 0)
 	iconBar.Name = "IconBar"
 	
 	local function selectTab()
-		if currentTab and currentTab.IconBar then
+		if currentTab then
+			currentTab.Icon.ImageColor3 = Color3.fromRGB(150, 150, 150)
 			currentTab.IconBar.BackgroundTransparency = 1
 		end
 		
 		currentTab = window.Tabs[tabName]
 		
+		icon.ImageColor3 = Color3.fromRGB(255, 100, 200)
 		iconBar.BackgroundTransparency = 0
 	end
 	
