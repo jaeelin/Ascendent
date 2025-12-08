@@ -81,7 +81,7 @@ return function(config)
 	window.hoverFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	window.hoverFrame.BackgroundTransparency = 1
 	window.hoverFrame.Position = UDim2.new(0, 0, 0.9, 0)
-	window.hoverFrame.ZIndex = 2
+	window.hoverFrame.ZIndex = 1
 	
 	local uiCorner5 = Instance.new("UICorner", window.hoverFrame)
 	uiCorner5.CornerRadius = UDim.new(0.25, 0)
