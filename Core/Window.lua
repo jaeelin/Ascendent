@@ -25,85 +25,89 @@ return function(config)
 
 	window.background = Instance.new("Frame", window.MainGUI)
 	window.background.Name = "Background"
-	window.background.Size = UDim2.new(1, 0, 1, 0)
-	window.background.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-	window.background.BackgroundTransparency = 1
+	window.background.Size = UDim2.new(0.3, 0, 0.75, 0)
+	window.background.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+	window.background.AnchorPoint = Vector2.new(0.5, 0.5)
+	window.background.Position = UDim2.new(0.5, 0, 0.5, 0)
+	window.background.ClipsDescendants = true
+	
+	local uiCorner = Instance.new("UICorner", window.background)
+	uiCorner.CornerRadius = UDim.new(0.025, 0)
 
 	window.mainFrame = Instance.new("Frame", window.background)
 	window.mainFrame.Name = "Main"
-	window.mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	window.mainFrame.BackgroundTransparency = 0.05
-	window.mainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	window.mainFrame.Size = UDim2.new(0.35, 0, 0.5, 0)
-	window.mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-	window.mainFrame.Visible = false
-
-	local uiCorner = Instance.new("UICorner", window.mainFrame)
-	uiCorner.CornerRadius = UDim.new(0.01, 0)
-
-	window.sideBar = Instance.new("Frame", window.background)
-	window.sideBar.Name = "Sidebar"
-	window.sideBar.AnchorPoint = Vector2.new(0.5, 0.5)
-	window.sideBar.BackgroundTransparency = 1
-	window.sideBar.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	window.sideBar.Size = UDim2.new(0.05, 0, 0.5, 0)
-	window.sideBar.Position = UDim2.new(-0.03, 0, 0.45, 0)
-
-	local uiCorner2 = Instance.new("UICorner", window.sideBar)
+	window.mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.mainFrame.Size = UDim2.new(0.75, 0, 0.75, 0)
+	window.mainFrame.Position = UDim2.new(0.125, 0, 0.125, 0)
+	
+	local uiCorner2 = Instance.new("UICorner", window.mainFrame)
 	uiCorner2.CornerRadius = UDim.new(0.025, 0)
 	
-	window.hoverFrame = Instance.new("Frame", window.sideBar)
-	window.hoverFrame.Name = "Hover"
-	window.hoverFrame.BackgroundTransparency = 1
-	window.hoverFrame.Size = UDim2.new(2, 0, 1, 0)
-	window.hoverFrame.Position = UDim2.new(-0.7, 0, 0, 0)
-
-	window.bar = Instance.new("Frame", window.sideBar)
-	window.bar.Name = "Bar"
-	window.bar.AnchorPoint = Vector2.new(0.5, 0.5)
-	window.bar.BackgroundTransparency = 0.05
-	window.bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	window.bar.Size = UDim2.new(0.05, 0, 0.15, 0)
-	window.bar.Position = UDim2.new(1.2, 0, 0.55, 0)
-
-	local uiCorner3 = Instance.new("UICorner", window.bar)
-	uiCorner3.CornerRadius = UDim.new(1, 0)
-
-	window.listFrame = Instance.new("Frame", window.sideBar)
-	window.listFrame.Name = "List"
-	window.listFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	window.listFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-	window.listFrame.Size = UDim2.new(1, 0, 1, 0)
-	window.listFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-
-	local uiCorner4 = Instance.new("UICorner", window.listFrame)
-	uiCorner4.CornerRadius = UDim.new(0.25, 0, 0)
-
-	local uiStroke = Instance.new("UIStroke", window.listFrame)
-	uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-	uiStroke.Color = Color3.fromRGB(255, 255, 255)
-	uiStroke.Thickness = 1.5
-
-	local uiListLayout = Instance.new("UIListLayout", window.listFrame)
+	window.bottomBar = Instance.new("Frame", window.background)
+	window.bottomBar.Name = "BottomBar"
+	window.bottomBar.Size = UDim2.new(1, 0, 0.1, 0)
+	window.bottomBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.bottomBar.Position = UDim2.new(0, 0, 1.05, 0)
+	
+	local uiCorner3 = Instance.new("UICorner", window.bottomBar)
+	uiCorner3.CornerRadius = UDim.new(0.25, 0)
+	
+	window.bottomBarCover = Instance.new("Frame", window.bottomBar)
+	window.bottomBarCover.Name = "BottomBarCover"
+	window.bottomBarCover.Size = UDim2.new(1, 0, 0.1, 0)
+	window.bottomBarCover.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.bottomBarCover.Position = UDim2.new(0, 0, -0.007, 0)
+	
+	window.tabHolder = Instance.new("Frame", window.bottomBar)
+	window.tabHolder.Name = "TabHolder"
+	window.tabHolder.Size = UDim2.new(0.75, 0, 1, 0)
+	window.tabHolder.Position = UDim2.new(0.125, 0, 0, 0)
+	window.tabHolder.BackgroundTransparency = 1
+	
+	local uiListLayout = Instance.new("UIListLayout", window.tabHolder)
+	uiListLayout.FillDirection = Enum.FillDirection.Horizontal
+	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 	uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center	
+	
+	local uiCorner4 = Instance.new("UICorner", window.tabHolder)
+	uiCorner4.CornerRadius = UDim.new(0.25, 0)
+	
+	window.hoverFrame = Instance.new("Frame", window.background)
+	window.hoverFrame.Name = "Hover"
+	window.hoverFrame.Size = UDim2.new(1, 0, 0.1, 0)
+	window.hoverFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.hoverFrame.BackgroundTransparency = 1
+	window.hoverFrame.Position = UDim2.new(0, 0, 0.9, 0)
+	window.hoverFrame.ZIndex = 2
+	
+	local uiCorner5 = Instance.new("UICorner", window.hoverFrame)
+	uiCorner5.CornerRadius = UDim.new(0.25, 0)
+	
+	window.hoverFrameBar = Instance.new("Frame", window.hoverFrame)
+	window.hoverFrameBar.Name = "Bar"
+	window.hoverFrameBar.Size = UDim2.new(0.2, 0, .08, 0)
+	window.hoverFrameBar.Position = UDim2.new(0.4, 0, 0.75, 0)
+	window.hoverFrameBar.BackgroundColor3 = Color3.fromRGB(255, 100, 200)
+	
+	local uiCorner6 = Instance.new("UICorner", window.hoverFrameBar)
+	uiCorner6.CornerRadius = UDim.new(1, 0)
 
 	window.hoverFrame.MouseEnter:Connect(function()
-		local sidebar = tweenService:Create(
-			window.sideBar,
+		local bottomTween = tweenService:Create(
+			window.bottomBar,
 			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
-			{Position = UDim2.new(0.05, 0, 0.45, 0)}
+			{Position = UDim2.new(0, 0, 0.9, 0)}
 		)
-		sidebar:Play()
+		bottomTween:Play()
 	end)
 
 	window.hoverFrame.MouseLeave:Connect(function()
-		local sidebar = tweenService:Create(
-			window.sideBar,
+		local bottomTween = tweenService:Create(
+			window.bottomBar,
 			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
-			{Position = UDim2.new(-0.03, 0, 0.45, 0)}
+			{Position = UDim2.new(0, 0, 1.05, 0)}
 		)
-		sidebar:Play()
+		bottomTween:Play()
 	end)
 
 	userInputService.InputBegan:Connect(function(input)
