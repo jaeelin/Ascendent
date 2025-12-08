@@ -18,6 +18,7 @@ return function(config)
 	window.MainGUI.Name = title
 	window.MainGUI.ResetOnSpawn = false
 	window.MainGUI.IgnoreGuiInset = true
+	window.MainGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 	config.GUI = window.MainGUI
 
@@ -55,9 +56,9 @@ return function(config)
 	
 	window.bottomBarCover = Instance.new("Frame", window.bottomBar)
 	window.bottomBarCover.Name = "BottomBarCover"
-	window.bottomBarCover.Size = UDim2.new(1, 0, 0.1, 0)
+	window.bottomBarCover.Size = UDim2.new(1, 0, 0.15, 0)
 	window.bottomBarCover.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	window.bottomBarCover.Position = UDim2.new(0, 0, -0.007, 0)
+	window.bottomBarCover.Position = UDim2.new(0, 0, -0.01, 0)
 	window.bottomBarCover.BorderSizePixel = 0
 	
 	window.tabHolder = Instance.new("Frame", window.bottomBar)
