@@ -33,7 +33,7 @@ return function(config)
 	window.background.Position = UDim2.new(0.5, 0, 0.5, 0)
 	window.background.ClipsDescendants = true
 	
-	Dragify.dragify(window.background, true)
+	Dragify.Dragify(window.background, true)
 	
 	local uiCorner = Instance.new("UICorner", window.background)
 	uiCorner.CornerRadius = UDim.new(0.025, 0)
