@@ -112,6 +112,7 @@ return function(config)
 	uiTextConstraint.MaxTextSize = 20
 	
 	window.tabTitle = Instance.new("TextLabel", window.background)
+	window.tabTitle.Name = "Title"
 	window.tabTitle.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
 	window.tabTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 	window.tabTitle.Size = UDim2.new(0.5, 0, 0.05, 0)
@@ -120,7 +121,11 @@ return function(config)
 	window.tabTitle.Text = ""
 	window.tabTitle.TextScaled = true
 	
+	local uiTextConstraint2 = Instance.new("UITextSizeConstraint", window.tabTitle)
+	uiTextConstraint2.MaxTextSize = 30
+	
 	window.tabDescription = Instance.new("TextLabel", window.background)
+	window.tabDescription.Name = "Description"
 	window.tabDescription.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
 	window.tabDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
 	window.tabDescription.Size = UDim2.new(0.75, 0, 0.045, 0)
@@ -129,11 +134,8 @@ return function(config)
 	window.tabDescription.Text = ""
 	window.tabDescription.TextScaled = true
 	
-	print(window.tabTitle)
-	print(window.tabDescription)
-	
-	local uiTextConstraint2 = Instance.new("UITextSizeConstraint", window.tabDescription)
-	uiTextConstraint2.MaxTextSize = 15
+	local uiTextConstraint3 = Instance.new("UITextSizeConstraint", window.tabDescription)
+	uiTextConstraint3.MaxTextSize = 15
 	
 	window.hoverFrame.MouseEnter:Connect(function()
 		local bottomTween = tweenService:Create(
