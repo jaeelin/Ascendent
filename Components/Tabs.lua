@@ -49,6 +49,8 @@ function Tabs:Create(window, config)
 		selectTab()
 	end
 	
+	print(tabCount, currentTab)
+	
 	tabButton.MouseButton1Click:Connect(selectTab)
 
 	window.Tabs[tabName] = { 
