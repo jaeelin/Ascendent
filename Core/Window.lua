@@ -71,6 +71,7 @@ return function(config)
 	uiListLayout.FillDirection = Enum.FillDirection.Horizontal
 	uiListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 	uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+	uiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	
 	local uiCorner4 = Instance.new("UICorner", window.tabHolder)
 	uiCorner4.CornerRadius = UDim.new(0.25, 0)
