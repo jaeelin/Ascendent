@@ -12,7 +12,6 @@ function Tabs:Create(window, config)
 	local tabOrder = config.Order or 0
 
 	local tabButton = Instance.new("ImageButton", window.tabHolder)
-	tabButton.ImageColor3 = Color3.fromRGB(150, 150, 150)
 	tabButton.Size = UDim2.new(0.095, 0, 0.8, 0)
 	tabButton.BackgroundTransparency = 1
 	tabButton.AutoButtonColor = false
@@ -20,6 +19,7 @@ function Tabs:Create(window, config)
 	tabButton.Name = tabName
 
 	local icon = Instance.new("ImageLabel", tabButton)
+	icon.ImageColor3 = Color3.fromRGB(150, 150, 150)
 	icon.ScaleType = Enum.ScaleType.Fit
 	icon.BackgroundTransparency = 1
 	icon.Size = UDim2.new(0.7, 0, 0.7, 0)
