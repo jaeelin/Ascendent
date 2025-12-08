@@ -53,6 +53,7 @@ function Tabs:Create(window, config)
 
 	window.Tabs[tabName] = { 
 		Button = tabButton,
+		Icon = icon,
 		IconBar = iconBar,
 	}
 
