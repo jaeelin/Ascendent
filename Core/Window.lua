@@ -97,11 +97,11 @@ return function(config)
 	window.exitButton = Instance.new("TextButton", window.background)
 	window.exitButton.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
 	window.exitButton.TextColor3 = Color3.fromRGB(255, 100, 200)
-	window.exitButton.TextScaled = "X"
 	window.exitButton.TextScaled = true
 	window.exitButton.Size = UDim2.new(0.085, 0, 0.07, 0)
 	window.exitButton.Position = UDim2.new(0.9, 0, 0.015, 0)
 	window.exitButton.BackgroundTransparency = 1
+	window.exitButton.Text = "X"
 	
 	local uiCorner7 = Instance.new("UICorner", window.exitButton)
 	uiCorner6.CornerRadius = UDim.new(0.25, 0)
