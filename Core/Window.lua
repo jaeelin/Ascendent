@@ -89,7 +89,7 @@ return function(config)
 	
 	window.hoverFrameBar = Instance.new("Frame", window.hoverFrame)
 	window.hoverFrameBar.Name = "Bar"
-	window.hoverFrameBar.Size = UDim2.new(0.2, 0, .08, 0)
+	window.hoverFrameBar.Size = UDim2.new(0.2, 0, 0.05, 0)
 	window.hoverFrameBar.Position = UDim2.new(0.4, 0, 0.75, 0)
 	window.hoverFrameBar.BackgroundColor3 = Color3.fromRGB(255, 100, 200)
 	
@@ -110,6 +110,30 @@ return function(config)
 	
 	local uiTextConstraint = Instance.new("UITextSizeConstraint", window.exitButton)
 	uiTextConstraint.MaxTextSize = 20
+	
+	window.tabTitle = Instance.new("TextLabel", window.background)
+	window.tabTitle.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
+	window.tabTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+	window.tabTitle.Size = UDim2.new(0.5, 0, 0.05, 0)
+	window.tabTitle.Position = UDim2.new(0.245, 0, 0.026, 0)
+	window.tabTitle.BackgroundTransparency = 1
+	window.tabTitle.Text = ""
+	window.tabTitle.TextScaled = true
+	
+	window.tabDescription = Instance.new("TextLabel", window.background)
+	window.tabDescription.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
+	window.tabDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
+	window.tabDescription.Size = UDim2.new(0.75, 0, 0.045, 0)
+	window.tabDescription.Position = UDim2.new(0.125, 0, 0.075, 0)
+	window.tabDescription.BackgroundTransparency = 1
+	window.tabDescription.Text = ""
+	window.tabDescription.TextScaled = true
+	
+	print(window.tabTitle)
+	print(window.tabDescription)
+	
+	local uiTextConstraint2 = Instance.new("UITextSizeConstraint", window.tabDescription)
+	uiTextConstraint2.MaxTextSize = 15
 	
 	window.hoverFrame.MouseEnter:Connect(function()
 		local bottomTween = tweenService:Create(
