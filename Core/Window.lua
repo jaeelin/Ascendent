@@ -37,7 +37,7 @@ return function(config)
 	window.mainFrame = Instance.new("Frame", window.background)
 	window.mainFrame.Name = "Main"
 	window.mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	window.mainFrame.Size = UDim2.new(0.75, 0, 0.75, 0)
+	window.mainFrame.Size = UDim2.new(0.85, 0, 0.75, 0)
 	window.mainFrame.Position = UDim2.new(0.125, 0, 0.125, 0)
 	
 	local uiCorner2 = Instance.new("UICorner", window.mainFrame)
@@ -93,7 +93,22 @@ return function(config)
 	
 	local uiCorner6 = Instance.new("UICorner", window.hoverFrameBar)
 	uiCorner6.CornerRadius = UDim.new(1, 0)
-
+	
+	window.exitButton = Instance.new("TextButton", window.background)
+	window.exitButton.FontFace = Enum.Font.GothamBold
+	window.exitButton.TextColor3 = Color3.fromRGB(255, 100, 200)
+	window.exitButton.TextScaled = "X"
+	window.exitButton.TextScaled = true
+	window.exitButton.Size = UDim2.new(0.085, 0, 0.07, 0)
+	window.exitButton.Position = UDim2.new(0.9, 0, 0.015, 0)
+	window.exitButton.BackgroundTransparency = 1
+	
+	local uiCorner7 = Instance.new("UICorner", window.exitButton)
+	uiCorner6.CornerRadius = UDim.new(0.25, 0)
+	
+	local uiTextConstraint = Instance.new("UITextSizeConstraint", window.exitButton)
+	uiTextConstraint.MaxTextSize = 20
+	
 	window.hoverFrame.MouseEnter:Connect(function()
 		local bottomTween = tweenService:Create(
 			window.bottomBar,
