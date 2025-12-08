@@ -48,6 +48,7 @@ return function(config)
 	window.bottomBar.Size = UDim2.new(1, 0, 0.1, 0)
 	window.bottomBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	window.bottomBar.Position = UDim2.new(0, 0, 1.05, 0)
+	window.bottomBar.ZIndex = 2
 	
 	local uiCorner3 = Instance.new("UICorner", window.bottomBar)
 	uiCorner3.CornerRadius = UDim.new(0.25, 0)
@@ -57,6 +58,7 @@ return function(config)
 	window.bottomBarCover.Size = UDim2.new(1, 0, 0.1, 0)
 	window.bottomBarCover.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	window.bottomBarCover.Position = UDim2.new(0, 0, -0.007, 0)
+	window.bottomBarCover.border = 0
 	
 	window.tabHolder = Instance.new("Frame", window.bottomBar)
 	window.tabHolder.Name = "TabHolder"
@@ -95,7 +97,7 @@ return function(config)
 	window.hoverFrame.MouseEnter:Connect(function()
 		local bottomTween = tweenService:Create(
 			window.bottomBar,
-			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+			TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
 			{Position = UDim2.new(0, 0, 0.9, 0)}
 		)
 		bottomTween:Play()
@@ -104,7 +106,7 @@ return function(config)
 	window.hoverFrame.MouseLeave:Connect(function()
 		local bottomTween = tweenService:Create(
 			window.bottomBar,
-			TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
+			TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),
 			{Position = UDim2.new(0, 0, 1.05, 0)}
 		)
 		bottomTween:Play()
