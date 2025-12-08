@@ -8,20 +8,17 @@ function Tabs:Create(window, config)
 	local tabDescription = config.Description or ""
 	local tabImage = config.Image or "rbxassetid://0"
 	
-	print(window.tabTitle)
-	print(window.tabDescription)
-	
 	tabCount += 1
 	
 	local tabOrder = config.Order or 0
-
+	
 	local tabButton = Instance.new("ImageButton", window.tabHolder)
-	tabButton.Size = UDim2.new(0.095, 0, 0.8, 0)
+	tabButton.Size = UDim2.new(0.125, 0, 0.8, 0)
 	tabButton.BackgroundTransparency = 1
 	tabButton.AutoButtonColor = false
 	tabButton.LayoutOrder = tabOrder
 	tabButton.Name = tabName
-
+	
 	local icon = Instance.new("ImageLabel", tabButton)
 	icon.ImageColor3 = Color3.fromRGB(150, 150, 150)
 	icon.ScaleType = Enum.ScaleType.Fit
