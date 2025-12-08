@@ -5,6 +5,7 @@ local tweenService = game:GetService("TweenService")
 local protectGui = (syn and syn.protect_gui)
 
 local Tabs = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Tabs.lua"))()
+local Dragify = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Utilities/Dragify.lua"))()
 
 return function(config)
 	local window = {}
@@ -31,6 +32,8 @@ return function(config)
 	window.background.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.background.Position = UDim2.new(0.5, 0, 0.5, 0)
 	window.background.ClipsDescendants = true
+	
+	Dragify.dragify(window.background, true)
 	
 	local uiCorner = Instance.new("UICorner", window.background)
 	uiCorner.CornerRadius = UDim.new(0.025, 0)
