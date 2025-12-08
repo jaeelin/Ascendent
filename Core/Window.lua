@@ -38,7 +38,7 @@ return function(config)
 	window.mainFrame.Name = "Main"
 	window.mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	window.mainFrame.Size = UDim2.new(0.85, 0, 0.75, 0)
-	window.mainFrame.Position = UDim2.new(0.125, 0, 0.125, 0)
+	window.mainFrame.Position = UDim2.new(0.075, 0, 0.125, 0)
 	
 	local uiCorner2 = Instance.new("UICorner", window.mainFrame)
 	uiCorner2.CornerRadius = UDim.new(0.025, 0)
@@ -95,7 +95,7 @@ return function(config)
 	uiCorner6.CornerRadius = UDim.new(1, 0)
 	
 	window.exitButton = Instance.new("TextButton", window.background)
-	window.exitButton.FontFace = Enum.Font.GothamBold
+	window.exitButton.FontFace = Font.new("rbxasset://fonts/families/Montserrat.json", Enum.FontWeight.Bold,Enum.FontStyle.Normal)
 	window.exitButton.TextColor3 = Color3.fromRGB(255, 100, 200)
 	window.exitButton.TextScaled = "X"
 	window.exitButton.TextScaled = true
