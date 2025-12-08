@@ -24,11 +24,13 @@ function Tabs:Create(window, config)
 	icon.Size = UDim2.new(0.9, 0, 0.7, 0)
 	icon.Position = UDim2.new(0.15, 0, 0.15, 0)
 	icon.Image = tabImage
+	icon.Name = "Icon"
 	
 	local iconBar = Instance.new("Frame", tabButton)
-	icon.BackgroundTransparency = 1
-	icon.Size = UDim2.new(0.5, 0, 0.07, 0)
-	icon.Position = UDim2.new(0.25, 0, 0.85, 0)
+	iconBar.BackgroundTransparency = 1
+	iconBar.Size = UDim2.new(0.5, 0, 0.07, 0)
+	iconBar.Position = UDim2.new(0.25, 0, 0.85, 0)
+	iconBar.Name = "IconBar"
 	
 	local function selectTab()
 		if currentTab and currentTab.IconBar then
@@ -46,7 +48,10 @@ function Tabs:Create(window, config)
 	
 	tabButton.MouseButton1Click:Connect(selectTab)
 
-	window.Tabs[tabName] = { Button = tabButton }
+	window.Tabs[tabName] = { 
+		Button = tabButton,
+		IconBar = iconBar,
+	}
 
 	return window.Tabs[tabName]
 end
