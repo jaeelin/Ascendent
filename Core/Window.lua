@@ -58,7 +58,7 @@ return function(config)
 	window.bottomBarCover.Size = UDim2.new(1, 0, 0.1, 0)
 	window.bottomBarCover.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	window.bottomBarCover.Position = UDim2.new(0, 0, -0.007, 0)
-	window.bottomBarCover.border = 0
+	window.bottomBarCover.BorderSizePixel = 0
 	
 	window.tabHolder = Instance.new("Frame", window.bottomBar)
 	window.tabHolder.Name = "TabHolder"
