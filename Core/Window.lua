@@ -15,7 +15,7 @@ return function(config)
 	local title = config.Title or "Ascendent"
 	local keybind = config.Keybind
 
-	window.MainGUI = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+	window.MainGUI = Instance.new("ScreenGui", coreGui)
 	window.MainGUI.Name = title
 	window.MainGUI.ResetOnSpawn = false
 	window.MainGUI.IgnoreGuiInset = true
@@ -29,6 +29,7 @@ return function(config)
 	window.background.Name = "Background"
 	window.background.AnchorPoint = Vector2.new(0.5, 0.5)
 	window.background.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+	window.background.BackgroundTransparency = 0.1
 	window.background.BorderSizePixel = 0
 	window.background.Position = UDim2.new(0.5, 0, 0.5, 0)
 	window.background.Size = UDim2.new(0.5, 0, 0.75, 0)
@@ -62,13 +63,13 @@ return function(config)
 	window.bottomBar.Position = UDim2.new(0, 0, 0.85, 0)
 	window.bottomBar.Size = UDim2.new(0.3, 0, 0.15, 0)
 
-	window.bottomBar = Instance.new("Frame", window.bottomBar)
-	window.bottomBar.Name = "Bar"
-	window.bottomBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	window.bottomBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	window.bottomBar.BorderSizePixel = 0
-	window.bottomBar.Position = UDim2.new(0.07, 0, -0.007, 0)
-	window.bottomBar.Size = UDim2.new(0.85, 0, 0.025, 0)
+	window.bar1 = Instance.new("Frame", window.bottomBar)
+	window.bar1.Name = "Bar"
+	window.bar1.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	window.bar1.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.bar1.BorderSizePixel = 0
+	window.bar1.Position = UDim2.new(0.07, 0, -0.007, 0)
+	window.bar1.Size = UDim2.new(0.85, 0, 0.025, 0)
 
 	window.informationBar = Instance.new("Frame", window.background)
 	window.informationBar.Name = "InformationBar"
@@ -77,20 +78,21 @@ return function(config)
 	window.informationBar.BorderSizePixel = 0
 	window.informationBar.Size = UDim2.new(0.3, 0, 0.2, 0)
 
-	window.bar1 = Instance.new("Frame", window.informationBar)
-	window.bar1.Name = "Bar"
-	window.bar1.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	window.bar1.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	window.bar1.BorderSizePixel = 0
-	window.bar1.Position = UDim2.new(0, 0, 0.933, 0)
-	window.bar1.Size = UDim2.new(0.995, 0, 0.025, 0)
-
 	window.bar2 = Instance.new("Frame", window.informationBar)
 	window.bar2.Name = "Bar"
-	window.bar2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	window.bar2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 	window.bar2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	window.bar2.BorderSizePixel = 0
-	window.bar2.Position = UDim2.new(0, 0, 0.262, 0)
+	window.bar2.Position = UDim2.new(0, 0, 0.933, 0)
+	window.bar2.Size = UDim2.new(0.995, 0, 0.02, 0)
+
+	window.bar3 = Instance.new("Frame", window.informationBar)
+	window.bar3.Name = "Bar"
+	window.bar3.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	window.bar3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.bar3.BorderSizePixel = 0
+	window.bar3.Position = UDim2.new(0, 0, 0.262, 0)
+	window.bar3.Size = UDim2.new(0.995, 0, 0.02, 0)
 
 	window.title = Instance.new("TextLabel", window.informationBar)
 	window.title.Name = "Title"
@@ -113,7 +115,7 @@ return function(config)
 
 	window.description = Instance.new("TextLabel", window.informationBar)
 	window.description.Name = "Description"
-	window.description.BackgroundTransparency = 1.000
+	window.description.BackgroundTransparency = 1
 	window.description.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	window.description.BorderSizePixel = 0
 	window.description.Position = UDim2.new(0.071, 0, 0.555, 0)
@@ -132,7 +134,7 @@ return function(config)
 
 	window.topBar = Instance.new("Frame", window.background)
 	window.topBar.Name = "TopBar"
-	window.topBar.BackgroundTransparency = 1.000
+	window.topBar.BackgroundTransparency = 1
 	window.topBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	window.topBar.BorderSizePixel = 0
 	window.topBar.Position = UDim2.new(0.299, 0, 0, 0)
@@ -144,7 +146,7 @@ return function(config)
 	window.exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	window.exit.BorderSizePixel = 0
 	window.exit.Position = UDim2.new(0.95, 0, 0.25, 0)
-	window.exit.Size = UDim2.new(0.032, 0, 0.24, 0)
+	window.exit.Size = UDim2.new(0.032, 0, 0.22, 0)
 	window.exit.Font = Enum.Font.SourceSans
 	window.exit.Text = ""
 	window.exit.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -159,7 +161,7 @@ return function(config)
 	window.minimize.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	window.minimize.BorderSizePixel = 0
 	window.minimize.Position = UDim2.new(0.9, 0, 0.25, 0)
-	window.minimize.Size = UDim2.new(0.032, 0, 0.24, 0)
+	window.minimize.Size = UDim2.new(0.032, 0, 0.22, 0)
 	window.minimize.Font = Enum.Font.SourceSans
 	window.minimize.Text = ""
 	window.minimize.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -168,17 +170,17 @@ return function(config)
 	local uiCorner3 = Instance.new("UICorner", window.minimize)
 	uiCorner3.CornerRadius = UDim.new(1, 0)
 
-	window.bar3 = Instance.new("Frame", window.topBar)
-	window.bar3.Name = "Bar"
-	window.bar3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	window.bar3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	window.bar3.BorderSizePixel = 0
-	window.bar3.Position = UDim2.new(0.007, 0, 0.842, 0)
-	window.bar3.Size = UDim2.new(0.995, 0, 0.025, 0)
-
+	window.bar4 = Instance.new("Frame", window.topBar)
+	window.bar4.Name = "Bar"
+	window.bar4.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	window.bar4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.bar4.BorderSizePixel = 0
+	window.bar4.Position = UDim2.new(0.004, 0, 0.842, 0)
+	window.bar4.Size = UDim2.new(0.995, 0, 0.025, 0)
+	
 	window.tabTitle = Instance.new("TextLabel", window.topBar)
 	window.tabTitle.Name = "Title"
-	window.tabTitle.BackgroundTransparency = 1.000
+	window.tabTitle.BackgroundTransparency = 1
 	window.tabTitle.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	window.tabTitle.BorderSizePixel = 0
 	window.tabTitle.Position = UDim2.new(0.05, 0, 0.35, 0)
@@ -202,13 +204,13 @@ return function(config)
 	window.frames.Position = UDim2.new(0.299, 0, 0.147, 0)
 	window.frames.Size = UDim2.new(0.7, 0, 0.853, 0)
 
-	window.bar3 = Instance.new("Frame", window.background)
-	window.bar3.Name = "Bar"
-	window.bar3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	window.bar3.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	window.bar3.BorderSizePixel = 0
-	window.bar3.Position = UDim2.new(0.299, 0, 0, 0)
-	window.bar3.Size = UDim2.new(0.005, 0, 1, 0)
+	window.bar5 = Instance.new("Frame", window.background)
+	window.bar5.Name = "Bar"
+	window.bar5.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	window.bar5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.bar5.BorderSizePixel = 0
+	window.bar5.Position = UDim2.new(0.299, 0, 0, 0)
+	window.bar5.Size = UDim2.new(0.0025, 0, 1, 0)
 
 	userInputService.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.Keyboard then
