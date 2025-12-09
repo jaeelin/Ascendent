@@ -192,7 +192,7 @@ return function(config)
 	window.tabTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 	local uiTextSizeConstraint3 = Instance.new("UITextSizeConstraint", window.tabTitle)
-	uiTextSizeConstraint3.MaxTextSize = 15
+	uiTextSizeConstraint3.MaxTextSize = 20
 
 	window.frames = Instance.new("Frame", window.background)
 	window.frames.Name = "Frames"
