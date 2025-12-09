@@ -7,7 +7,6 @@ local Toggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeeli
 
 function Tabs:CreateTab(window, config)
 	local tabName = config.Name or "NewTab"
-	local tabDescription = config.Description or ""
 	local tabImage = config.Image or "rbxassetid://4034483344"
 
 	tabCount += 1
@@ -63,8 +62,7 @@ function Tabs:CreateTab(window, config)
 
 		currentTab = window.Tabs[tabName]
 
-		window.title.Text = tabName
-		window.description.Text = tabDescription
+		window.tabTitle.Text = tabName
 
 		icon.ImageColor3 = Color3.fromRGB(255, 100, 200)
 	end
