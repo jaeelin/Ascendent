@@ -1,5 +1,5 @@
 local Library = {
-	Version = "Beta 1.0.1",
+	Version = "Beta 1.0.3",
 	Window = nil,
 	GUI = nil,
 }
@@ -17,8 +17,8 @@ function Library:CreateWindow(config)
 	})
 	Library.Window = Window
 	Library.GUI = Window.MainGUI
-	
-	Window.exitButton.MouseButton1Click:Connect(function()
+
+	Window.exit.MouseButton1Click:Connect(function()
 		Library:Destroy()
 	end)
 
