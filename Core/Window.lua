@@ -219,6 +219,10 @@ return function(config)
 			end
 		end
 	end)
+	
+	window.minimize.MouseButton1Click:Connect(function()
+		window.MainGUI.Enabled = false
+	end)
 
 	function window:CreateTab(config)
 		return Tabs:CreateTab(window, config)
