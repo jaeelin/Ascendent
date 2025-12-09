@@ -1,5 +1,5 @@
 local Library = {
-	Version = "Beta 1.0.4",
+	Version = "Beta 1.0.5",
 	Window = nil,
 	GUI = nil,
 }
