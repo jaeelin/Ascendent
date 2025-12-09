@@ -1,3 +1,5 @@
+local tweenService = game:GetService("TweenService")
+
 local Tabs = {}
 
 local tabCount = 0
@@ -15,7 +17,9 @@ function Tabs:CreateTab(window, config)
 
 	local tabButton = Instance.new("TextButton", window.sidebar)
 	tabButton.Name = "Home"
+	tabButton.AutoButtonColor = false
 	tabButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+	tabButton.BackgroundTransparency = 1
 	tabButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	tabButton.BorderSizePixel = 0
 	tabButton.Size = UDim2.new(0.9, 0, 0.12, 0)
@@ -26,6 +30,12 @@ function Tabs:CreateTab(window, config)
 
 	local uiCorner = Instance.new("UICorner", tabButton)
 	uiCorner.CornerRadius = UDim.new(0.15, 0)
+	
+	local uiStroke = Instance.new("UIStroke", tabButton)
+	uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	uiStroke.Color = Color3.fromRGB(45, 45, 45)
+	uiStroke.Thickness = 1
+	uiStroke.Transparency = 1
 
 	local icon = Instance.new("ImageLabel", tabButton)
 	icon.Name = "Icon"
@@ -57,19 +67,24 @@ function Tabs:CreateTab(window, config)
 
 	local function selectTab()
 		if currentTab then
-			currentTab.Icon.ImageColor3 = Color3.fromRGB(150, 150, 150)
+			local resetInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+
+			tweenService:Create(currentTab.Button, resetInfo, {BackgroundTransparency = 1}):Play()
+			tweenService:Create(currentTab.UIStroke, resetInfo, {Transparency = 1}):Play()
 		end
 
 		currentTab = window.Tabs[tabName]
-
 		window.tabTitle.Text = tabName
 
-		icon.ImageColor3 = Color3.fromRGB(255, 100, 200)
+		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+		tweenService:Create(tabButton, tweenInfo, {BackgroundTransparency = 0.1}):Play()
+		tweenService:Create(uiStroke, tweenInfo, {Transparency = 0}):Play()
 	end
 
 	window.Tabs[tabName] = { 
 		Button = tabButton,
 		Icon = icon,
+		UIStroke = uiStroke,
 	}
 	
 	if tabCount == 1 then
