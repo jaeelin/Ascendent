@@ -58,6 +58,7 @@ function Holder:Create(tab, config)
 	list.Size = UDim2.new(1, 0, 1, 0)
 	list.BackgroundTransparency = 1
 	list.ScrollBarThickness = 0
+	list.AutomaticCanvasSize = Enum.AutomaticSize.XY
 
 	Instance.new("UIListLayout", list).HorizontalAlignment = Enum.HorizontalAlignment.Center
 	Instance.new("UIPadding", list).PaddingTop = UDim.new(0.05, 0)
