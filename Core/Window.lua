@@ -1,6 +1,9 @@
 local coreGui = game:GetService("CoreGui")
 local userInputService = game:GetService("UserInputService")
 local tweenService = game:GetService("TweenService")
+local playerService = game:GetService("Players")
+
+local player = playerService.LocalPlayer
 
 local protectGui = (syn and syn.protect_gui)
 
@@ -13,6 +16,7 @@ return function(config)
 	window.Tabs = {}
 
 	local title = config.Title or "Ascendent"
+	local description = config.Description or "An advanced script that utilizes Ascendent UI Library."
 	local keybind = config.Keybind
 
 	window.MainGUI = Instance.new("ScreenGui", coreGui)
@@ -50,7 +54,6 @@ return function(config)
 	window.sidebar.Size = UDim2.new(0.3, 0, 0.65, 0)
 
 	local uiListLayout = Instance.new("UIListLayout", window.sidebar)
-	uiListLayout.Parent = window.sidebar
 	uiListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	uiListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 	uiListLayout.Padding = UDim.new(0.015, 0)
@@ -103,7 +106,7 @@ return function(config)
 	window.title.Position = UDim2.new(0.05, 0, 0.35, 0)
 	window.title.Size = UDim2.new(0.758, 0, 0.209, 0)
 	window.title.Font = Enum.Font.GothamBold
-	window.title.Text = "Ascendent Hub"
+	window.title.Text = title
 	window.title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	window.title.TextScaled = true
 	window.title.TextSize = 14
@@ -121,7 +124,7 @@ return function(config)
 	window.description.Position = UDim2.new(0.071, 0, 0.555, 0)
 	window.description.Size = UDim2.new(0.924, 0, 0.379, 0)
 	window.description.Font = Enum.Font.GothamBold
-	window.description.Text = "An advanced script library that includes multiple game support. "
+	window.description.Text = description
 	window.description.TextColor3 = Color3.fromRGB(225, 225, 225)
 	window.description.TextScaled = true
 	window.description.TextSize = 14
@@ -211,7 +214,83 @@ return function(config)
 	window.bar5.BorderSizePixel = 0
 	window.bar5.Position = UDim2.new(0.299, 0, 0, 0)
 	window.bar5.Size = UDim2.new(0.0025, 0, 1, 0)
-
+	
+	window.holder = Instance.new("Frame", window.bottomBar)
+	window.holder.Name = "Holder"
+	window.holder.BackgroundTransparency = 1
+	window.holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.holder.BorderSizePixel = 0
+	window.holder.Position = UDim2.new(0.119999997, 0, 0.150000006, 0)
+	window.holder.Size = UDim2.new(0.75, 0, 0.5, 0)
+	
+	local uiCorner4 = Instance.new("UICorner", window.holder)
+	uiCorner4.CornerRadius = UDim.new(0.15, 0)
+	
+	local uiStroke = Instance.new("UIStroke", window.holder)
+	uiStroke.Color = Color3.fromRGB(45, 45, 45)
+	uiStroke.Transparency = 1
+	uiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	
+	window.userIcon = Instance.new("ImageLabel", window.holder)
+	window.userIcon.Name = "Icon"
+	window.userIcon.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+	window.userIcon.BackgroundTransparency = 0.1
+	window.userIcon.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.userIcon.BorderSizePixel = 0
+	window.userIcon.Position = UDim2.new(0.06, 0, 0.08, 0)
+	window.userIcon.Size = UDim2.new(0.203, 0, 0.92, 0)
+	window.userIcon.ScaleType = Enum.ScaleType.Fit
+	
+	local uiCorner5 = Instance.new("UICorner", window.userIcon)
+	uiCorner5.CornerRadius = UDim.new(1, 0)
+	
+	local uiStroke2 = Instance.new("UIStroke", window.userIcon)
+	uiStroke2.Color = Color3.fromRGB(45, 45, 45)
+	uiStroke2.Thickness = 1.5
+	uiStroke2.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+	
+	window.username = Instance.new("ImageLabel", window.holder)
+	window.username.Name = "Username"
+	window.username.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	window.username.BackgroundTransparency = 1
+	window.username.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.username.BorderSizePixel = 0
+	window.username.Position = UDim2.new(0.325, 0, 0, 0)
+	window.username.Size = UDim2.new(0.673, 0, 0.6, 0)
+	window.username.Font = Enum.Font.GothamBold
+	window.username.Text = "Username"
+	window.username.TextColor3 = Color3.fromRGB(255, 255, 255)
+	window.username.TextScaled = true
+	window.username.TextSize = 14
+	window.username.TextWrapped = true
+	window.username.TextXAlignment = Enum.TextXAlignment.Left
+	
+	local uiTextSizeConstraint4 = Instance.new("UITextSizeConstraint", window.username)
+	uiTextSizeConstraint4.MaxTextSize = 15
+	
+	window.display = Instance.new("ImageLabel", window.holder)
+	window.display.Name = "Display"
+	window.display.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	window.display.BackgroundTransparency = 1.000
+	window.display.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	window.display.BorderSizePixel = 0
+	window.display.Position = UDim2.new(0.324600458, 0, 0.576195002, 0)
+	window.display.Size = UDim2.new(0.673043489, 0, 0.423805147, 0)
+	window.display.Font = Enum.Font.GothamBold
+	window.display.Text = "@Display"
+	window.display.TextColor3 = Color3.fromRGB(255, 255, 255)
+	window.display.TextScaled = true
+	window.display.TextSize = 14.000
+	window.display.TextWrapped = true
+	window.display.TextXAlignment = Enum.TextXAlignment.Left
+	
+	local uiTextSizeConstraint5 = Instance.new("UITextSizeConstraint", window.display)
+	uiTextSizeConstraint5.MaxTextSize = 10
+	
+	window.username.Text = player.Name
+	window.display.Text = string.format("@%s", player.DisplayName)
+	window.userIcon.Image = playerService:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
+	
 	userInputService.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.Keyboard then
 			if input.KeyCode == keybind then
