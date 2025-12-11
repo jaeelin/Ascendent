@@ -18,7 +18,7 @@ function Toggle:Create(holder, config)
 	toggle.BorderSizePixel = 0
 	toggle.Position = UDim2.new(9.55083692e-08, 0, 0, 0)
 	toggle.Selectable = false
-	toggle.Size = UDim2.new(0.949999988, 0, 0.219999999, 0)
+	toggle.Size = UDim2.new(0.949999988, 0, 0.25, 0)
 	toggle.AutoButtonColor = false
 	toggle.Text = ""
 
