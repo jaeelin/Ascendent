@@ -20,7 +20,7 @@ function Slider:Create(holder, config)
 	slider.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	slider.BorderSizePixel = 0
 	slider.Position = UDim2.new(9.55083692e-08, 0, 0, 0)
-	slider.Size = UDim2.new(0.949999988, 0, 0.219999999, 0)
+	slider.Size = UDim2.new(0.949999988, 0, 0.25, 0)
 
 	local uiCorner = Instance.new("UICorner", slider)
 	uiCorner.CornerRadius = UDim.new(0.1, 0)
