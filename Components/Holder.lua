@@ -3,6 +3,7 @@ local Holder = {}
 local tabHolders = {}
 
 local Toggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Toggle.lua"))()
+local Slider = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Slider.lua"))()
 
 function Holder:Create(tab, config)
 	local tabHolder = tab.List
@@ -62,13 +63,17 @@ function Holder:Create(tab, config)
 	Instance.new("UIPadding", list).PaddingTop = UDim.new(0.05, 0)
 
 	table.insert(column, frame)
-	
+
 	local holderObject = {}
 	holderObject.frame = frame
 	holderObject.list = list
 
-	function holderObj:CreateToggle(config)
+	function holderObject:CreateToggle(config)
 		return Toggle:Create(self.frame, config)
+	end
+
+	function holderObject:CreateSlider(config)
+		return Slider:Create(self.frame, config)
 	end
 
 	return holderObject
