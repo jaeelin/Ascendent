@@ -6,6 +6,7 @@ local tabCount = 0
 local currentTab = nil
 
 local Toggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Toggle.lua"))()
+local Holder = loadstring(game:HttpGet("https://raw.githubusercontent.com/jaeelin/Ascendent/refs/heads/main/Components/Holder.lua"))()
 
 function Tabs:CreateTab(window, config)
 	local tabName = config.Name or "NewTab"
@@ -64,6 +65,15 @@ function Tabs:CreateTab(window, config)
 
 	local uiTextSizeConstraint = Instance.new("UITextSizeConstraint", title)
 	uiTextSizeConstraint.MaxTextSize = 15
+	
+	local tabHolder = Instance.new("Frame", window.frames)
+	tabHolder.Name = tabName
+	tabHolder.BackgroundTransparency = 1
+	tabHolder.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	tabHolder.BorderSizePixel = 0
+	tabHolder.Position = UDim2.new(0.004, 0, -0.021, 0)
+	tabHolder.Size = UDim2.new(0.998, 0, 1.021, 0)
+	tabHolder.Visible = false
 
 	local function selectTab()
 		if currentTab then
@@ -71,6 +81,7 @@ function Tabs:CreateTab(window, config)
 
 			tweenService:Create(currentTab.Button, resetInfo, {BackgroundTransparency = 1}):Play()
 			tweenService:Create(currentTab.UIStroke, resetInfo, {Transparency = 1}):Play()
+			currentTab.List.Visible = false
 		end
 
 		currentTab = window.Tabs[tabName]
@@ -79,23 +90,25 @@ function Tabs:CreateTab(window, config)
 		local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 		tweenService:Create(tabButton, tweenInfo, {BackgroundTransparency = 0.1}):Play()
 		tweenService:Create(uiStroke, tweenInfo, {Transparency = 0}):Play()
+		tabHolder.Visible = true
 	end
 
 	window.Tabs[tabName] = { 
 		Button = tabButton,
+		List = tabHolder,
 		Icon = icon,
 		UIStroke = uiStroke,
 	}
-	
+
 	if tabCount == 1 then
-		--list.Visible = true
+		tabHolder.Visible = true
 		selectTab()
 	end
 
 	tabButton.MouseButton1Click:Connect(selectTab)
 
-	function Tabs:CreateToggle(config)
-		return Toggle:Create(window.Tabs[tabName], config)
+	window.Tabs[tabName].CreateHolder = function(self, config)
+		return Holder:Create(self, config)
 	end
 
 	return window.Tabs[tabName]
